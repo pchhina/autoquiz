@@ -1,0 +1,2 @@
+#!/bin/bash
+f=$1; shift; env "R_PROFILE_USER=$f" "ARGS=$@" R --no-save -q

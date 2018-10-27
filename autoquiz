@@ -1,0 +1,26 @@
+#!/usr/local/bin/Rint
+library(quizme)
+cat('syncing with network database...')
+system('pull') # alias to call rclone to sync with google
+cat('done')
+cat('reading local database...')
+quizme()
+cat('done')
+input <- 'a' # dummy input to force into while loop
+while (input != 'b') {
+    if (input != 't') ask()
+    input <- readline(prompt = '<(h)it (m)iss (t)ell (b)ye (a)dd> ')
+    input <- as.character(input)
+    switch(input,
+           h = hit(),
+           m = miss(),
+           t = tell(),
+           a = addq())
+    }
+cat('updating local database...')
+bye()
+cat('done')
+cat('updating network database...')
+system('push') # alias to call rclone to sync with google
+cat('done')
+q()
