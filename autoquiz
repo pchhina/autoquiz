@@ -1,15 +1,20 @@
 #!/usr/local/bin/Rint
 library(quizme)
-cat('syncing with network database...')
-system('pull') # alias to call rclone to sync with google
-cat('done')
-cat('reading local database...')
+cat('syncing with network database...\n')
+system('rclone sync gcloud:quizme ~/.quizme')
+cat('done\n')
+cat('reading local database...\n')
 quizme()
-cat('done')
+cat('done\n')
 input <- 'a' # dummy input to force into while loop
 while (input != 'b') {
-    if (input != 't') ask()
-    input <- readline(prompt = '<(h)it (m)iss (t)ell (b)ye (a)dd> ')
+    if (input != 't') {
+    cat('\n')
+    ask()
+    }
+    cat('\n')
+    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd : ')
+    cat('\n')
     input <- as.character(input)
     switch(input,
            h = hit(),
@@ -17,10 +22,10 @@ while (input != 'b') {
            t = tell(),
            a = addq())
     }
-cat('updating local database...')
+cat('updating local database...\n')
 bye()
-cat('done')
-cat('updating network database...')
-system('push') # alias to call rclone to sync with google
-cat('done')
+cat('done\n')
+cat('updating network database...\n')
+system('rclone sync ~/.quizme gcloud:quizme')
+cat('done\n')
 q()
