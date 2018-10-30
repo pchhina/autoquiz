@@ -13,14 +13,16 @@ while (input != 'b') {
     ask()
     }
     cat('\n')
-    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd : ')
+    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd (c)hange (s)tatus: ')
     cat('\n')
     input <- as.character(input)
     switch(input,
            h = hit(),
            m = miss(),
            t = tell(),
-           a = addq())
+           a = addq(),
+           c = changeq(),
+           s = show_status())
     }
 cat('updating local database...\n')
 bye()
