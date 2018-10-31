@@ -6,9 +6,11 @@ cat('done\n')
 cat('reading local database...\n')
 quizme()
 cat('done\n')
-input <- 'a' # dummy input to force into while loop
+cat('use rq to repeat question if needed\n')
+cat("Let's go!\n")
+input <- 'z' # dummy input to force into while loop
 while (input != 'b') {
-    if (input == 'h' | input == 'm') {
+    if (input == 'h' | input == 'm' | input == 'z') {
     cat('\n')
     ask()
     }
