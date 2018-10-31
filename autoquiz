@@ -5,8 +5,7 @@ system('rclone sync gcloud:quizme ~/.quizme')
 cat('done\n')
 cat('reading local database...\n')
 quizme()
-cat('done\n')
-cat('use rq to repeat question if needed\n')
+cat('done\n\n')
 cat("Let's go!\n")
 input <- 'z' # dummy input to force into while loop
 while (input != 'b') {
@@ -15,7 +14,7 @@ while (input != 'b') {
     ask()
     }
     cat('\n')
-    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd (c)hange (s)tatus: ')
+    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd (c)hange (s)tatus (r)epeat: ')
     cat('\n')
     input <- as.character(input)
     switch(input,
@@ -25,7 +24,7 @@ while (input != 'b') {
            a = addq(),
            c = changeq(),
            s = show_status(),
-           rq = ask())
+           r = ask())
     }
 cat('updating local database...\n')
 bye()
