@@ -8,7 +8,7 @@ quizme()
 cat('done\n')
 input <- 'a' # dummy input to force into while loop
 while (input != 'b') {
-    if (input != 't') {
+    if (input == 'h' | input == 'm') {
     cat('\n')
     ask()
     }
@@ -22,7 +22,8 @@ while (input != 'b') {
            t = tell(),
            a = addq(),
            c = changeq(),
-           s = show_status())
+           s = show_status(),
+           rq = ask())
     }
 cat('updating local database...\n')
 bye()
