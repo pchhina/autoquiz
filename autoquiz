@@ -14,7 +14,7 @@ while (input != 'b') {
     ask()
     }
     cat('\n')
-    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd (c)hange (s)tatus (r)epeat: ')
+    input <- readline(prompt = '(h)it (m)iss (t)ell (b)ye (a)dd (c)hange (s)tatus (r)epeat (w)eek: ')
     cat('\n')
     input <- as.character(input)
     switch(input,
@@ -24,7 +24,8 @@ while (input != 'b') {
            a = addq(),
            c = changeq(),
            s = show_status(),
-           r = ask())
+           r = ask(),
+           w = week_ahead())
     }
 cat('updating local database...\n')
 bye()
