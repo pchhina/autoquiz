@@ -25,7 +25,8 @@ while (input != 'b') {
            c = changeq(),
            s = show_status(),
            r = ask(),
-           w = week_ahead())
+           w = week_ahead(),
+           dl = delete_last())
     }
 cat('updating local database...\n')
 bye()
